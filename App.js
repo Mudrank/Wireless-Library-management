@@ -1,46 +1,41 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
 //importing screens
-import Search from './Screens/SearchScreen';
-import Transaction from './Screens/Transaction'
+import Search from "./Screens/SearchScreen";
+import Transaction from "./Screens/Transaction";
 
 //import navigation
- import { createAppContainer } from 'react-navigation';
- import {createBottomTabNavigator} from 'react-navigation-tabs'
- import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import { createAppContainer } from "react-navigation";
+import { createBottomTabNavigator } from "react-navigation-tabs";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default class App extends React.Component {
   render() {
     return (
-      <View>
-<AppContainer/>
-      </View>
-
-
-  );
-}
+        <AppContainer />
+    );
+  }
 }
 
 const TabNavigator = createBottomTabNavigator({
-  Transaction: { screen: Transaction},
-  Search: { screen: Search},
-})
+  Transaction: { screen: Transaction },
+  Search: { screen: Search },
+});
 
-const AppContainer = createAppContainer(TabNavigator)
+const AppContainer = createAppContainer(TabNavigator);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#58355E'
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#58355E",
   },
-  text:{
-    fontSize:30,
-    fontWeight: 'bold',
-    color: '#FFF689'
-  }
+  text: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "#FFF689",
+  },
 });
