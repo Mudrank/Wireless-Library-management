@@ -31,7 +31,7 @@ const TabNavigator = createBottomTabNavigator({
   Search: { 
     screen: Search,
     navigationOptions: {
-      tabBarLabel: 'Home', 
+      tabBarLabel: 'Search', 
       tabBarIcon: ({ tintColor }) => (
           <Icon name="search" color={tintColor} size={25} />
       )
