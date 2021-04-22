@@ -2,7 +2,8 @@ import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import * as Permissions from "expo-permissions";
 import { BarCodeScanner } from "expo-barcode-scanner";
-
+import { Camera } from 'expo-camera';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 export default class Transaction extends React.Component {
   constructor() {
     super();
@@ -42,8 +43,11 @@ else {
   
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>IN Transaction</Text>
-        <TouchableOpacity onPress={this.getCamPermissions}>
+          <View style={styles.row}>
+      <Icon style={styles.icon} name="money-check" color='#7f5af0' size={27} />
+        <Text style={styles.title}>Transactions</Text>
+        </View>
+        <TouchableOpacity style={styles.scan}onPress={this.getCamPermissions}>
           <Text>Scan Qrcode</Text>
         </TouchableOpacity>
       </View>
@@ -56,14 +60,24 @@ else {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#58355E",
+    backgroundColor: "#16161a",
   },
-  text: {
+  row:{
+    flexDirection:'row' 
+   },
+   icon:{
+     padding:10
+   },
+  title: {
     fontSize: 30,
     fontWeight: "bold",
-    color: "#FFF689",
+    color: "#fffffe",
+  },
+  scan: {
+    alignItems: "center",
+    backgroundColor: "#DDDDDD",
+    padding: 10
   },
 });

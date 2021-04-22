@@ -1,11 +1,15 @@
 import React from "react";
 import { StyleSheet, Text, View , TextInput } from "react-native";
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default class Search extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>IN search</Text>
+      <View style={styles.row}>
+      <Icon style={styles.icon} name="search" color='#7f5af0' size={27} />
+        <Text style={styles.title}>Search</Text>
+        </View>
         <TextInput
         placeholder="Enter your text here"
         keyboardAppearance="dark"
@@ -19,14 +23,19 @@ export default class Search extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#58355E",
+    backgroundColor: "#16161a",
   },
-  text: {
+  row:{
+   flexDirection:'row' 
+  },
+  icon:{
+    padding:10
+  },
+  title: {
     fontSize: 30,
     fontWeight: "bold",
-    color: "#FFF689",
+    color: "#fffffe",
   },
 });

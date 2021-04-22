@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+// import {} from "react-native";
 
 //importing screens
 import Search from "./Screens/SearchScreen";
@@ -8,7 +8,7 @@ import Transaction from "./Screens/Transaction";
 //import navigation
 import { createAppContainer } from "react-navigation";
 import { createBottomTabNavigator } from "react-navigation-tabs";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default class App extends React.Component {
   render() {
@@ -19,23 +19,31 @@ export default class App extends React.Component {
 }
 
 const TabNavigator = createBottomTabNavigator({
-  Transaction: { screen: Transaction },
-  Search: { screen: Search },
+  Transaction: {
+     screen: Transaction ,
+     navigationOptions: {
+      tabBarLabel: 'Home', 
+      tabBarIcon: ({ tintColor }) => (
+          <Icon name="money-check" color={tintColor} size={25} />
+      )
+  }
+    },
+  Search: { 
+    screen: Search,
+    navigationOptions: {
+      tabBarLabel: 'Home', 
+      tabBarIcon: ({ tintColor }) => (
+          <Icon name="search" color={tintColor} size={25} />
+      )
+  }
+   },
+  },{
+    tabBarOptions: {
+        activeTintColor: '#7f5af0', 
+        inactiveTintColor: '#72757e'
+    }
 });
 
 const AppContainer = createAppContainer(TabNavigator);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#58355E",
-  },
-  text: {
-    fontSize: 30,
-    fontWeight: "bold",
-    color: "#FFF689",
-  },
-});
+
